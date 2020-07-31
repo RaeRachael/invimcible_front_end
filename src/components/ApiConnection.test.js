@@ -40,7 +40,6 @@ describe("Level 1 connection", () => {
     makeRequest(1)
 
     setTimeout(function (){
-
       expect(store.getState().map).toBe(mapOutput);
       expect(store.getState().player).toBe(playerOutput);
       
