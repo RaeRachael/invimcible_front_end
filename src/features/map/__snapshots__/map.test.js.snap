@@ -4,9 +4,9 @@ exports[`Map renders map information 1`] = `
 <div
   style={
     Object {
-      "backgroundColor": "#42b842",
-      "border": "4px solid white",
-      "height": 384,
+      "backgroundColor": "black",
+      "border": "3px solid white",
+      "height": 416,
       "left": "-32px",
       "position": "relative",
       "top": "0px",

@@ -2,14 +2,15 @@
 
 exports[`Map renders map information 1`] = `
 <div
+  className="Player"
   style={
     Object {
       "backgroundImage": "url('player_walk.png')",
       "backgroundPosition": "0px 0px",
       "height": "32px",
-      "left": 0,
+      "left": 32,
       "position": "absolute",
-      "top": 0,
+      "top": 32,
       "width": "32px",
     }
   }
