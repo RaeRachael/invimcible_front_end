@@ -1,8 +1,9 @@
-// import React from "react";
-import getSpriteLocation from "./movement";
+import React from "react";
+import handleMovement from "./movement";
 import handleKeyDown from "./movement";
 import store from "../../config/store";
-// import Player from "./index.js";
+import Player from "./index.js";
+import { shallow } from 'enzyme'
 
 describe("Player", () => {
 
@@ -22,7 +23,11 @@ describe("Player", () => {
             walkIndex: 0
       }
     })
-    handleKeyDown('h')
+    shallow(<Player />);
+
+    var event = new KeyboardEvent('keydown', {'keyCode': '43'});
+    document.dispatchEvent(event);
+
     setTimeout(function (){
       expect(store.getState().player.position).toEqual([32, 0])
       done()

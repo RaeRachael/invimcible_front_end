@@ -2,6 +2,7 @@ import store from "../../config/store";
 import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT, SCRIPT_1 } from "../../config/constants";
 import makeRequest from "../../components/API"
 
+
 export default function handleMovement(player) {
 
   let canMove = true
@@ -162,7 +163,8 @@ export default function handleMovement(player) {
     }
   }
   
-  window.addEventListener("keydown", (e) => {
+
+function handleKeyDown(e) {
     if (canMove == true) e.preventDefault();
 
     switch (e.key) {
@@ -187,11 +189,11 @@ export default function handleMovement(player) {
       default:
         return;
     }
-  })
+  }
 
-  // window.addEventListener("keydown", (e) => {
-  //   handleKeyDown(e);
-  // });
+  window.addEventListener("keydown", (e) => {
+    handleKeyDown(e);
+  });
 
   return player;
 }

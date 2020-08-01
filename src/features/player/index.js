@@ -26,4 +26,5 @@ function mapStateToProps(state) {
   };
 }
 
+
 export default connect(mapStateToProps)(handleMovement(Player));
