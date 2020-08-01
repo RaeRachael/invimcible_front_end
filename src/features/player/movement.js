@@ -162,8 +162,7 @@ export default function handleMovement(player) {
     }
   }
   
-
-  function handleKeyDown(e) {
+  window.addEventListener("keydown", (e) => {
     if (canMove == true) e.preventDefault();
 
     switch (e.key) {
@@ -188,11 +187,11 @@ export default function handleMovement(player) {
       default:
         return;
     }
-  }
+  })
 
-  window.addEventListener("keydown", (e) => {
-    handleKeyDown(e);
-  });
+  // window.addEventListener("keydown", (e) => {
+  //   handleKeyDown(e);
+  // });
 
   return player;
 }

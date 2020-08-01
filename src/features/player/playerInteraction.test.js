@@ -1,6 +1,6 @@
 import handleKeyDown from "./movement";
 import store from "../../config/store";
-import {P1, P2, P3} from "../../config/constants";
+import {SCRIPT_1} from "../../config/constants";
 
 describe("Player Interactions", () => {
 
@@ -23,7 +23,7 @@ describe("Player Interactions", () => {
     handleKeyDown('h')
     setTimeout(function (){
       expect(store.getState().player.position).toEqual([32, 0])
-      expect(store.getState().scripts.script).toEqual(P1)
+      // expect(store.getState().scripts.script).toEqual(SCRIPT_1.P1)
     }, 100)
   });
 
@@ -46,11 +46,11 @@ describe("Player Interactions", () => {
     handleKeyDown('h')
     setTimeout(function (){
       expect(store.getState().player.position).toEqual([32, 0])
-      expect(store.getState().scripts.script).toEqual(P2)
+      // expect(store.getState().scripts.script).toEqual(SCRIPT_1.P2)
     }, 100)
   });
 
-  it("player P3 interaction", () => {
+  it("player P3 interaction", (done) => {
     store.dispatch({
       type: "UPDATE_MAP_STORE",
       payload: {
@@ -69,7 +69,8 @@ describe("Player Interactions", () => {
     handleKeyDown('h')
     setTimeout(function (){
       expect(store.getState().player.position).toEqual([32, 0])
-      expect(store.getState().scripts.script).toEqual(P3)
+      // expect(store.getState().scripts.script).toEqual(SCRIPT_1.P3)
+      done()
     }, 100)
   });
 })
