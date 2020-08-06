@@ -1,13 +1,11 @@
 import React from "react";
-import handleMovement from "./movement";
-import handleKeyDown from "./movement";
+import { attemptMove } from "./movement.js";
 import store from "../../config/store";
-import Player from "./index.js";
-import { shallow } from 'enzyme'
+
 
 describe("Player", () => {
 
-  it("can move east", (done) => {
+  it("can move east", () => {
     store.dispatch({
       type: "UPDATE_MAP_STORE",
       payload: {
@@ -23,15 +21,9 @@ describe("Player", () => {
             walkIndex: 0
       }
     })
-    shallow(<Player />);
+    attemptMove("EAST")
 
-    var event = new KeyboardEvent('keydown', {'keyCode': '43'});
-    document.dispatchEvent(event);
-
-    setTimeout(function (){
-      expect(store.getState().player.position).toEqual([32, 0])
-      done()
-    }, 100)
+    expect(store.getState().player.position).toEqual([32, 0])
   });
   
 });
