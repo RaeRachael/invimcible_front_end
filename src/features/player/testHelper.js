@@ -19,4 +19,14 @@ function addToStoreBlockingTiles(tileMap) {
   })
 }
 
-export { addToStoreBlockingTiles }
+function addToStoreLocation(location) {
+  store.dispatch({
+    type: "UPDATE_PLAYER_STORE",
+    payload: {
+      position: location,
+      walkIndex: 0
+    }
+  })
+}
+
+export { addToStoreBlockingTiles, addToStoreLocation }
