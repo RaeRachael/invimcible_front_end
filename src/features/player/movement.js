@@ -154,7 +154,7 @@ export function attemptMove(direction) {
   }
 }
     
-function attemptJump(direction){
+export function attemptJump(direction){
   const oldPos = store.getState().player.position;
   const newPos = getNewJumpPosition(oldPos, direction);
   const potholePos = getNewPosition(oldPos, direction);

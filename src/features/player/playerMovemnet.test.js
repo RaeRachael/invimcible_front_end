@@ -1,5 +1,5 @@
 import React from "react";
-import { attemptMove } from "./movement.js";
+import { attemptMove, attemptJump } from "./movement.js";
 import { addToStoreBlockingTiles, addToStoreLocation } from "./testHelper.js"
 import store from "../../config/store";
 
@@ -54,6 +54,18 @@ describe("Player", () => {
       addToStoreBlockingTiles([[false, true]])
       addToStoreLocation([0, 0])
       attemptMove("EAST")
+
+      expect(store.getState().player.position).toEqual([0, 0])
+    })
+
+  })
+
+  describe("can jump over a bin with the command 'w' ", function() {
+
+    it("can not move off the map", function() {
+      addToStoreBlockingTiles([[false, false, false]])
+      addToStoreLocation([0, 0])
+      attemptJump("EAST")
 
       expect(store.getState().player.position).toEqual([0, 0])
     })
