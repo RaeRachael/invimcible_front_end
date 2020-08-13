@@ -183,7 +183,7 @@ export function handleKeyDown(e) {
     case "Backspace":
       if (store.getState().vimCommand.length === 1) {
         return VimMoves();
-      } else { return }
+      } else { return "text area still in use" }
     case ":":
       return VimCantMove();
     case "w":
@@ -191,6 +191,6 @@ export function handleKeyDown(e) {
     case "b":
       return attemptJump("WEST");
     default:
-      return;
+      return "not in use";
   }
 }
