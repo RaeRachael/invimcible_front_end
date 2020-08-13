@@ -62,24 +62,64 @@ describe("Player", () => {
 
   })
 
-  describe("can jump over bins with the commands 'w' and 'b'", function() {
+  describe("'w' and 'b' inputs", function() {
 
-    it("does not jump with 'w' command unless next to a bin", function() {
-      addToStoreBlockingTiles([[false, false, false]])
-      addToStoreLocation([0, 0])
-      handleKeyDown({key: "w"})
+    describe("cannot jump if not next to a bin", function() {
 
-      expect(store.getState().player.position).toEqual([0, 0])
+      it("does not jump with 'w' command unless next to a bin", function() {
+        addToStoreBlockingTiles([[false, false, false]])
+        addToStoreLocation([0, 0])
+        handleKeyDown({key: "w"})
+
+        expect(store.getState().player.position).toEqual([0, 0])
+      })
+
+      it("does not jump with 'b' command unless next to a bin", function() {
+        addToStoreBlockingTiles([[false, false, false]])
+        addToStoreLocation([64, 0])
+        handleKeyDown({key: "b"})
+
+        expect(store.getState().player.position).toEqual([64, 0])
+      })
+
     })
 
-    it("does not jump with 'b' command unless next to a bin", function() {
-      addToStoreBlockingTiles([[false, false, false]])
+    describe("can jump over bins with the commands 'w' and 'b'", function() {
+
+      it("jumps with 'w' command when next to a bin", function() {
+        addToStoreBlockingTiles([[false, true, false]])
+        addToStoreLocation([0, 0])
+        handleKeyDown({key: "w"})
+
+        expect(store.getState().player.position).toEqual([64, 0])
+      })
+
+
+    it("jumps with 'b' command when next to a bin", function() {
+      addToStoreBlockingTiles([[false, true, false]])
       addToStoreLocation([64, 0])
       handleKeyDown({key: "b"})
 
-      expect(store.getState().player.position).toEqual([64, 0])
+      expect(store.getState().player.position).toEqual([0, 0])
     })
+  })
+
+
+  // })
+
 
   })
+
+  // describe("can jump over bins with the commands 'w' and 'b'", function() {
+
+  //   it("does not jump with 'w' command unless next to a bin", function() {
+  //     addToStoreBlockingTiles([[false, false, false]])
+  //     addToStoreLocation([0, 0])
+  //     handleKeyDown({key: "w"})
+
+  //     expect(store.getState().player.position).toEqual([0, 0])
+  //   })
   
+  // })
+
 });

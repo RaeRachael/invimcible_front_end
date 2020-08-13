@@ -5,7 +5,11 @@ function addToStoreBlockingTiles(tileMap) {
   tileMap.forEach(row => {
     var subMap = []
     row.forEach(tile => {
-      subMap.push({"value":"SC4","x":32,"y":224,"blocked":tile})
+      if (tile ===true) {
+        subMap.push({"value":"BB","x":32,"y":224,"blocked":tile})
+      } else {
+        subMap.push({"value":"SC4","x":32,"y":224,"blocked":tile})
+      }
     })
     tiles.push(subMap)
   });
