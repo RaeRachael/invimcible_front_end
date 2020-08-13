@@ -1,12 +1,12 @@
 import React from "react";
 import { handleKeyDown } from "./movement.js";
-import { addToStoreBlockingTiles, addToStoreLocation } from "./testHelper.js"
+import { addToStoreTiles, addToStoreLocation } from "./testHelper.js"
 import store from "../../config/store";
 
 
 describe("basic movement", function() {
 
-  addToStoreBlockingTiles([[false, false],[false, false]])
+  addToStoreTiles([[false, false],[false, false]])
 
   it("can move east", () => {
     addToStoreLocation([0, 0])
@@ -41,7 +41,7 @@ describe("basic movement", function() {
 describe("cases where player can't move", function() {
 
   it("can not move off the map", function() {
-    addToStoreBlockingTiles([[false]])
+    addToStoreTiles([[false]])
     addToStoreLocation([0, 0])
     handleKeyDown({key: "k"})
 
@@ -50,7 +50,7 @@ describe("cases where player can't move", function() {
   })
 
   it("can not move onto a blocking tile", function() {
-    addToStoreBlockingTiles([[false, true]])
+    addToStoreTiles([[false, true]])
     addToStoreLocation([0, 0])
     handleKeyDown({key: "l"})
 
@@ -65,7 +65,7 @@ describe("'w' and 'b' inputs", function() {
   describe("cannot jump if not next to a bin", function() {
 
     it("does not jump with 'w' command unless next to a bin", function() {
-      addToStoreBlockingTiles([[false, false, false]])
+      addToStoreTiles([[false, false, false]])
       addToStoreLocation([0, 0])
       handleKeyDown({key: "w"})
 
@@ -73,7 +73,7 @@ describe("'w' and 'b' inputs", function() {
     })
 
     it("does not jump with 'b' command unless next to a bin", function() {
-      addToStoreBlockingTiles([[false, false, false]])
+      addToStoreTiles([[false, false, false]])
       addToStoreLocation([64, 0])
       handleKeyDown({key: "b"})
 
@@ -85,7 +85,7 @@ describe("'w' and 'b' inputs", function() {
   describe("can jump over bins with the commands 'w' and 'b'", function() {
 
     it("jumps with 'w' command when next to a bin", function() {
-      addToStoreBlockingTiles([[false, true, false]])
+      addToStoreTiles([[false, true, false]])
       addToStoreLocation([0, 0])
       handleKeyDown({key: "w"})
 
@@ -94,7 +94,7 @@ describe("'w' and 'b' inputs", function() {
 
 
     it("jumps with 'b' command when next to a bin", function() {
-      addToStoreBlockingTiles([[false, true, false]])
+      addToStoreTiles([[false, true, false]])
       addToStoreLocation([64, 0])
       handleKeyDown({key: "b"})
 
@@ -102,6 +102,6 @@ describe("'w' and 'b' inputs", function() {
     })
 
   })
-  
+
 })
 

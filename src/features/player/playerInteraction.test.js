@@ -1,25 +1,13 @@
 import { handleKeyDown } from "./movement";
 import store from "../../config/store";
 import {SCRIPT_1} from "../../config/constants";
+import { addToStoreTiles, addToStoreLocation } from "./testHelper.js"
 
 describe("Player Interactions", () => {
 
   it("player P1 interaction", () => {
-    store.dispatch({
-      type: "UPDATE_MAP_STORE",
-      payload: {
-        loaded: true,
-        tiles: [[{"value":"P1","x":32,"y":224,"blocked":true},{"value":"SPD","x":96,"y":224,"blocked":false}]],
-        level: 1
-      },
-    })
-    store.dispatch({
-      type: "UPDATE_PLAYER_STORE",
-      payload: {
-        position: [32, 0],
-            walkIndex: 0
-      }
-    })
+    addToStoreTiles([["P1", false]])
+    addToStoreLocation([32, 0])
     handleKeyDown({ key: 'h' })
 
     expect(store.getState().player.position).toEqual([32, 0])
@@ -28,21 +16,8 @@ describe("Player Interactions", () => {
   });
 
   it("player P2 interaction", () => {
-    store.dispatch({
-      type: "UPDATE_MAP_STORE",
-      payload: {
-        loaded: true,
-        tiles: [[{"value":"P2","x":32,"y":224,"blocked":true},{"value":"SPD","x":96,"y":224,"blocked":false}]],
-        level: 1
-      },
-    })
-    store.dispatch({
-      type: "UPDATE_PLAYER_STORE",
-      payload: {
-        position: [32, 0],
-            walkIndex: 0
-      }
-    })
+    addToStoreTiles([["P2", false]])
+    addToStoreLocation([32, 0])
     handleKeyDown({ key: 'h' })
 
     expect(store.getState().player.position).toEqual([32, 0])
@@ -50,21 +25,8 @@ describe("Player Interactions", () => {
   });
 
   it("player P3 interaction", () => {
-    store.dispatch({
-      type: "UPDATE_MAP_STORE",
-      payload: {
-        loaded: true,
-        tiles: [[{"value":"P3","x":32,"y":224,"blocked":true},{"value":"SPD","x":96,"y":224,"blocked":false}]],
-        level: 1
-      },
-    })
-    store.dispatch({
-      type: "UPDATE_PLAYER_STORE",
-      payload: {
-        position: [32, 0],
-            walkIndex: 0
-      }
-    })
+    addToStoreTiles([["P3", false]])
+    addToStoreLocation([32, 0])
     handleKeyDown({ key: 'h' })
 
     expect(store.getState().player.position).toEqual([32, 0])
