@@ -1,6 +1,6 @@
 import store from "../../config/store";
 import { SPRITE_SIZE, MAP_WIDTH, MAP_HEIGHT, SCRIPT_1 } from "../../config/constants";
-import makeRequest from "../../components/API"
+import { makeRequest } from "../../components/API"
 
 let canMove = true
 export function handleMovement(player) {
