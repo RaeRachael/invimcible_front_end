@@ -26,7 +26,6 @@ describe('Other key press inputs', function() {
     handleKeyDown({ key: "Backspace"})
     addToStoreLocation([0, 0])
     handleKeyDown({key: "j"})
-    console.log(store.getState().player.position)
   
     expect(store.getState().player.position).toEqual([0, 32])
   })
