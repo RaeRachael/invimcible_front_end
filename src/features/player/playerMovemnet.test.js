@@ -1,5 +1,5 @@
 import React from "react";
-import { handleKeyDown } from "./movement.js";
+import { handleKeyDown, vimMoves } from "./movement.js";
 import { addToStoreTiles, addToStoreLocation } from "./testHelper.js"
 import store from "../../config/store";
 
@@ -45,7 +45,6 @@ describe("cases where player can't move", function() {
     addToStoreLocation([0, 0])
     handleKeyDown({key: "k"})
 
-
     expect(store.getState().player.position).toEqual([0, 0])
   })
 
@@ -54,8 +53,17 @@ describe("cases where player can't move", function() {
     addToStoreLocation([0, 0])
     handleKeyDown({key: "l"})
 
+    expect(store.getState().player.position).toEqual([0, 0])
+  })
+
+  it("can not move if command box in use", function() {
+    addToStoreTiles([[false, false]])
+    addToStoreLocation([0, 0])
+    handleKeyDown({key: ":"})
+    handleKeyDown({key: "l"})
 
     expect(store.getState().player.position).toEqual([0, 0])
+    vimMoves()
   })
 
 })

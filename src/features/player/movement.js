@@ -113,11 +113,11 @@ function loadLevel(number) {
   makeRequest(number)
 }
 
-function VimCantMove() {
+function vimCantMove() {
   canMove = false;
 }
 
-function VimMoves() {
+export function vimMoves() {
   canMove = true;
 }
 
@@ -182,10 +182,10 @@ export function handleKeyDown(e) {
       return attemptMove("SOUTH");
     case "Backspace":
       if (store.getState().vimCommand.length === 1) {
-        return VimMoves();
+        return vimMoves();
       } else { return "text area still in use" }
     case ":":
-      return VimCantMove();
+      return vimCantMove();
     case "w":
       return attemptJump("EAST");
     case "b":
