@@ -14,7 +14,8 @@ jest.mock("./helpScreenLevel1.jsx", () => {
 
 describe( "Help component", () => {
 
-  it("calls level 1 helpcreen if level is 1", () => {
+  it("calls level 1 helpscreen if level is 1", () => {
+
     store.dispatch({
       type: "UPDATE_MAP_STORE",
       payload: {
