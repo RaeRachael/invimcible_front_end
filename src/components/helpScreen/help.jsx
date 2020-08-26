@@ -7,11 +7,12 @@ export default class Help extends React.Component {
   getLevel() {
     return store.getState().map.level
   }
-    render () {
-      if(this.getLevel() === 1) {
+  render () {
+    console.log(this.getLevel())
+    if(this.getLevel() === 1) {
       return <HelpScreenLevel1 />
-      } else {
-        return <HelpScreenLevel2 />
-      }
-}
+    } else {
+      return <HelpScreenLevel2 />
+    }
+  }
 }
