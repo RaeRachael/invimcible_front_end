@@ -1,8 +1,8 @@
 import React from "react";
 import World from "../features/world";
-import makeRequest from "./API.js";
+import { makeRequest } from "./API.js";
 import store from "../config/store";
-import {shallow} from 'enzyme';
+import { shallow } from 'enzyme';
 
 
 describe("Level 1 connection", () => {
@@ -40,7 +40,6 @@ describe("Level 1 connection", () => {
     makeRequest(1)
 
     setTimeout(function (){
-
       expect(store.getState().map).toBe(mapOutput);
       expect(store.getState().player).toBe(playerOutput);
       

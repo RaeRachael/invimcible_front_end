@@ -2,7 +2,7 @@ import React from "react";
 import Map from "../map";
 import Player from "../player";
 import "./world.css";
-import makeRequest from "../../components/API";
+import { makeRequest } from "../../components/API";
 // import store from "../../config/store";
 
 makeRequest();
